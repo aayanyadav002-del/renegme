@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rene's Love Quest ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="particles-bg"></div>
+
+    <!-- MUSIC -->
+    <audio id="bgMusic" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- FLOATING HEARTS -->
+    <div id="heartContainer"></div>
+
+    <!-- WELCOME SCREEN -->
+    <section id="welcomeScreen" class="screen active">
+
+        <div class="welcome-card">
+            <h1>❤️ Rene's Love Quest ❤️</h1>
+
+            <p>
+                A tiny adventure made specially for
+                <span class="highlight">Renesha</span>
+            </p>
+
+            <div class="hero-heart">💖</div>
+
+            <button id="startBtn" class="primary-btn">
+                Start Our Story 🌸
+            </button>
+        </div>
+
+    </section>
+
+    <!-- WORLD MAP -->
+    <section id="mapScreen" class="screen">
+
+        <h2>Choose Your Adventure 💕</h2>
+
+        <div class="map-grid">
+
+            <div class="level-card" data-level="heart">
+                <div class="emoji">❤️</div>
+                <h3>Heart Valley</h3>
+                <p>Collect love hearts</p>
+            </div>
+
+            <div class="level-card" data-level="memory">
+                <div class="emoji">📸</div>
+                <h3>Memory Forest</h3>
+                <p>Our favorite memories</p>
+            </div>
+
+            <div class="level-card" data-level="quiz">
+                <div class="emoji">💌</div>
+                <h3>Quiz Castle</h3>
+                <p>How well do you know us?</p>
+            </div>
+
+            <div class="level-card" data-level="garden">
+                <div class="emoji">🌷</div>
+                <h3>Flower Garden</h3>
+                <p>Bloom the flowers</p>
+            </div>
+
+            <div class="level-card final-level" data-level="final">
+                <div class="emoji">✨</div>
+                <h3>Dream Island</h3>
+                <p>Final Surprise</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HEART GAME -->
+    <section id="heartLevel" class="screen">
+
+        <h2>Catch My Love ❤️</h2>
+
+        <p class="subtitle">
+            Tap the hearts before they disappear!
+        </p>
+
+        <div id="heartScore">
+            Hearts: 0
+        </div>
+
+        <div id="heartGameArea"></div>
+
+        <button class="backBtn">
+            ⬅ Back To Map
+        </button>
+
+    </section>
+
+    <!-- MEMORY GALLERY -->
+    <section id="memoryLevel" class="screen">
+
+        <h2>Memory Forest 📸</h2>
+
+        <div class="gallery">
+
+            <div class="photo-card">
+                <img src="assets/photo1.jpg" alt="Memory 1">
+                <p>One of my favorite memories ❤️</p>
+            </div>
+
+            <div class="photo-card">
+                <img src="assets/photo2.jpg" alt="Memory 2">
+                <p>You make everything better 🌸</p>
+            </div>
+
+            <div class="photo-card">
+                <img src="assets/photo3.jpg" alt="Memory 3">
+                <p>Forever my Bbyy 💖</p>
+            </div>
+
+            <div class="photo-card">
+                <img src="assets/photo4.jpg" alt="Memory 4">
+                <p>Still makes me smile 😊</p>
+            </div>
+
+        </div>
+
+        <button class="backBtn">
+            ⬅ Back To Map
+        </button>
+
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quizLevel" class="screen">
+
+        <h2>Quiz Castle 💌</h2>
+
+        <div id="quizBox">
+
+            <h3 id="questionText"></h3>
+
+            <div id="answers"></div>
+
+            <p id="quizResult"></p>
+
+        </div>
+
+        <button class="backBtn">
+            ⬅ Back To Map
+        </button>
+
+    </section>
+
+    <!-- FLOWER GAME -->
+    <section id="gardenLevel" class="screen">
+
+        <h2>Flower Garden 🌷</h2>
+
+        <p>
+            Tap flowers to reveal sweet messages.
+        </p>
+
+        <div id="flowerArea"></div>
+
+        <div id="flowerMessage"></div>
+
+        <button class="backBtn">
+            ⬅ Back To Map
+        </button>
+
+    </section>
+
+    <!-- FINAL LEVEL -->
+    <section id="finalLevel" class="screen">
+
+        <div class="final-container">
+
+            <div id="bigHeart">
+                ❤️
+            </div>
+
+            <h2>Open My Heart</h2>
+
+            <button id="openLetterBtn" class="primary-btn">
+                Reveal The Letter 💌
+            </button>
+
+            <div id="letterBox">
+
+                <h3>To My Rene ❤️</h3>
+
+                <div id="typewriterText">
+
+                    I love you soo soo so muchh...
+                    You are my favorite person,
+                    my comfort,
+                    and my happiness.
+
+                    I was,
+                    I am,
+                    and I always will be in love with you.
+
+                    Pinky promise ❤️
+
+                </div>
+
+                <button id="yesBtn">
+                    YES ❤️
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONFETTI SCREEN -->
+    <section id="endingScreen" class="screen">
+
+        <div class="ending-content">
+
+            <h1>
+                I LOVE YOU SO MUCH RENE ❤️
+            </h1>
+
+            <p>
+                Forever My Bbyy 🌸
+            </p>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js">
+</script> 
+<script src="script.js">
+</script>
+
+<!-- Celebration Canvas -->
+
+ <canvas id="celebrationCanvas"></canvas>
+
+
+</body>
+</html>
+

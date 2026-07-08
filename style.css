@@ -1,0 +1,528 @@
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffd6e7,#ffe9f3,#fff4fa);
+    min-height:100vh;
+    overflow-x:hidden;
+    color:#444;
+}
+
+.screen{
+    display:none;
+    min-height:100vh;
+    padding:30px 20px;
+}
+
+.screen.active{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+h1,h2,h3{
+    text-align:center;
+}
+
+.highlight{
+    color:#ff4f93;
+    font-weight:700;
+}
+
+.subtitle{
+    margin-top:10px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+/* =========================
+   HEART BACKGROUND
+========================= */
+
+#heartContainer{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.floating-heart{
+    position:absolute;
+    font-size:20px;
+    animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-120px);
+        opacity:0;
+    }
+}
+
+/* =========================
+   WELCOME SCREEN
+========================= */
+
+.welcome-card{
+    width:min(95%,500px);
+    background:white;
+    padding:35px;
+    border-radius:30px;
+    text-align:center;
+    box-shadow:0 12px 40px rgba(255,100,160,.15);
+}
+
+.hero-heart{
+    font-size:90px;
+    margin:25px 0;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+.primary-btn{
+    border:none;
+    background:#ff5c9d;
+    color:white;
+    padding:14px 28px;
+    border-radius:999px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.primary-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* =========================
+   MAP
+========================= */
+
+#mapScreen{
+    align-items:center;
+}
+
+.map-grid{
+    margin-top:30px;
+    width:100%;
+    max-width:1000px;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.level-card{
+    background:white;
+    padding:25px;
+    border-radius:25px;
+    text-align:center;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.level-card:hover{
+    transform:translateY(-8px);
+}
+
+.emoji{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.final-level{
+    border:3px solid #ff6aa8;
+}
+
+/* =========================
+   HEART GAME
+========================= */
+
+#heartGameArea{
+    width:min(95vw,900px);
+    height:500px;
+    margin-top:20px;
+    background:white;
+    border-radius:30px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.game-heart{
+    position:absolute;
+    cursor:pointer;
+    font-size:42px;
+    animation:heartPop .25s;
+}
+
+@keyframes heartPop{
+    from{
+        transform:scale(0);
+    }
+
+    to{
+        transform:scale(1);
+    }
+}
+
+#heartScore{
+    font-size:24px;
+    font-weight:700;
+    color:#ff4f93;
+    margin-top:15px;
+}
+
+/* =========================
+   MEMORY GALLERY
+========================= */
+
+.gallery{
+    margin-top:30px;
+    width:100%;
+    max-width:1200px;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.photo-card{
+    background:white;
+    padding:15px;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.photo-card:hover{
+    transform:translateY(-5px);
+}
+
+.photo-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:18px;
+}
+
+.photo-card p{
+    margin-top:12px;
+    text-align:center;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+#quizBox{
+    margin-top:30px;
+    background:white;
+    width:min(95%,650px);
+    padding:30px;
+    border-radius:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+#questionText{
+    margin-bottom:25px;
+}
+
+#answers{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.answer-btn{
+    border:none;
+    background:#ffe0ec;
+    padding:15px;
+    border-radius:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.answer-btn:hover{
+    background:#ffd1e3;
+}
+
+#quizResult{
+    margin-top:20px;
+    font-weight:700;
+    text-align:center;
+}
+
+/* =========================
+   FLOWER GARDEN
+========================= */
+
+#flowerArea{
+    width:min(95vw,900px);
+    height:500px;
+    margin-top:20px;
+    background:white;
+    border-radius:30px;
+    position:relative;
+    overflow:hidden;
+}
+
+.flower{
+    position:absolute;
+    font-size:42px;
+    cursor:pointer;
+    animation:bloom .3s;
+}
+
+@keyframes bloom{
+    from{
+        transform:scale(.2);
+    }
+
+    to{
+        transform:scale(1);
+    }
+}
+
+#flowerMessage{
+    margin-top:25px;
+    font-size:20px;
+    color:#ff4f93;
+    text-align:center;
+    min-height:40px;
+}
+
+/* =========================
+   FINAL LEVEL
+========================= */
+
+.final-container{
+    text-align:center;
+    max-width:900px;
+}
+
+#bigHeart{
+    font-size:120px;
+    animation:pulse 1.4s infinite;
+}
+
+#openLetterBtn{
+    margin-top:25px;
+}
+
+#letterBox{
+    margin-top:30px;
+    display:none;
+
+    background:white;
+    padding:30px;
+    border-radius:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+#typewriterText{
+    margin-top:20px;
+    white-space:pre-line;
+    line-height:1.8;
+}
+
+#yesBtn{
+    margin-top:25px;
+    border:none;
+    background:#ff4f93;
+    color:white;
+    padding:15px 35px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* =========================
+   END SCREEN
+========================= */
+
+#endingScreen{
+    background:
+    radial-gradient(circle at center,
+    #ffd7ea,
+    #ffb9d5);
+}
+
+.ending-content{
+    text-align:center;
+}
+
+.ending-content h1{
+    font-size:clamp(40px,7vw,90px);
+    color:white;
+    text-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+.ending-content p{
+    margin-top:20px;
+    color:white;
+    font-size:24px;
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.backBtn{
+    margin-top:25px;
+    border:none;
+    background:white;
+    padding:12px 22px;
+    border-radius:999px;
+    cursor:pointer;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .welcome-card{
+        padding:25px;
+    }
+
+    .hero-heart{
+        font-size:70px;
+    }
+
+    #heartGameArea,
+    #flowerArea{
+        height:420px;
+    }
+
+    #bigHeart{
+        font-size:90px;
+    }
+
+    .photo-card img{
+        height:220px;
+    }
+}
+#particles-bg{
+
+ position:fixed; 
+
+ inset:0;
+ 
+ z-index:-2;
+ 
+ pointer-events:none; 
+} 
+#heartContainer{ 
+z-index:-1; 
+}
+
+
+/* ========================== CELEBRATION EFFECTS ========================== */
+
+
+ #celebrationCanvas{
+ position:fixed; 
+
+inset:0; 
+
+width:100%; 
+
+height:100%; 
+
+pointer-events:none; 
+
+z-index:9998;
+
+ } 
+
+.celebrationMessage{ 
+
+position:fixed; 
+
+top:50%; 
+left:50%; t
+
+ransform:translate(-50%,-50%); 
+
+text-align:center; 
+
+color:white; 
+
+text-shadow:0 5px 20px rgba(0,0,0,.3); 
+
+animation:popIn .8s; 
+
+z-index:9999; 
+
+} .
+
+
+celebrationMessage h1{ 
+
+font-size:clamp(42px,8vw,90px); 
+
+} 
+
+.celebrationMessage p{ 
+
+font-size:24px; 
+
+margin-top:15px; 
+
+} 
+
+@keyframes popIn{ 
+
+0%{ 
+
+transform:translate(-50%,-50%) scale(.4); 
+
+opacity:0; 
+
+
+} 
+
+
+100%{ 
+
+
+transform:translate(-50%,-50%) scale(1); 
+
+opacity:1;
+
+ } 
+
+}
